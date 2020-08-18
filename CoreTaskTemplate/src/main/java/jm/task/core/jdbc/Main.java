@@ -1,25 +1,24 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
-
 public class Main {
     public static void main(String[] args) {
-        // реализуйте алгоритм здесь
-
-
-        // Классы dao/service должны реализовывать соответствующие интерфейсы
-        // Класс dao должен иметь конструктор пустой/по умолчанию
-        // Все поля должны быть private
-        // service переиспользует методы dao
-        // Обработка всех исключений, связанных с работой с базой данных должна находиться в dao
-        // Класс Util должен содержать логику настройки соединения с базой данных
 
         UserService userService = new UserServiceImpl();
         userService.createUsersTable();
+        userService.saveUser("a","b", (byte) 8);
+        userService.saveUser("z","x", (byte) 22);
+        userService.saveUser("c","v", (byte) 13);
+        userService.saveUser("q","w", (byte) 31);
 
+        for (User user: userService.getAllUsers()) {
+            System.out.println(user);
+        }
+
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
     }
-
-
 }
