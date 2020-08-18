@@ -11,10 +11,7 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema">
-            <name qname="accountingtime" />
-            <name qname="testDB" />
-          </node>
+          <node kind="schema" qname="testDB" />
         </introspection-scope>
       </schema-mapping>
     </data-source>
