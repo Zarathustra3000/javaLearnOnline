@@ -1,5 +1,10 @@
 package jm.task.core.jdbc.util;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
 import java.sql.*;
 
 public class Util {
@@ -18,4 +23,17 @@ public class Util {
         }
         return connection;
     }
+
+    public SessionFactory getConnectionHibernate() {
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+        SessionFactory sessionFactory = null;
+        try {
+            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        } catch (Exception e) {
+            StandardServiceRegistryBuilder.destroy(registry);
+            throw new ExceptionInInitializerError("invalid session factory failed " + e);
+        }
+        return sessionFactory;
+    }
+
 }

@@ -9,16 +9,17 @@ public class Main {
 
         UserService userService = new UserServiceImpl();
         userService.createUsersTable();
-        userService.saveUser("a","b", (byte) 8);
-        userService.saveUser("z","x", (byte) 22);
-        userService.saveUser("c","v", (byte) 13);
-        userService.saveUser("q","w", (byte) 31);
+        userService.saveUser("s","d", (byte) 9);
+        System.out.println("xyi");
 
-        for (User user: userService.getAllUsers()) {
-            System.out.println(user);
-        }
-
-        userService.cleanUsersTable();
-        userService.dropUsersTable();
+//        userService.saveUser("a","b", (byte) 8);
+//        userService.saveUser("z","x", (byte) 22);
+//        userService.saveUser("c","v", (byte) 13);
+//        userService.saveUser("q","w", (byte) 31);
+//        for (User user: userService.getAllUsers()) {
+//            System.out.println(user);
+//        }
+//        userService.cleanUsersTable();
+//        userService.dropUsersTable();
     }
 }
