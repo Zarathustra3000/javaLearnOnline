@@ -7,7 +7,7 @@ import jm.task.core.jdbc.model.User;
 
 import java.util.List;
 
-public class UserServiceImpl extends UserDaoHibernateImpl implements UserService {
+public class UserServiceImpl implements UserService {
     UserDao userDao = new UserServiceImpl();
     
     @Override
@@ -37,6 +37,6 @@ public class UserServiceImpl extends UserDaoHibernateImpl implements UserService
 
     @Override
     public void cleanUsersTable() {
-        super.cleanUsersTable();
+        userDao.cleanUsersTable();
     }
 }
