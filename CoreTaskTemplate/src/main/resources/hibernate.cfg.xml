@@ -8,7 +8,7 @@
         <!--property name="hibernate.jdbc.time_zone">com.mysql.cj.jdbc.Driver</property |com.mysql.jdbc.Driver|   useSSL=false-->
         <property name="connection.url">jdbc:mysql://localhost:3306/testDB?serverTimezone=UTC</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">password</property>
+        <property name="connection.password">privetsql</property>
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">10</property>
         <!-- Select our SQL dialect  MySQL5Dialect -->
