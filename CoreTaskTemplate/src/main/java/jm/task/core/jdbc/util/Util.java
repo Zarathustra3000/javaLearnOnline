@@ -1,17 +1,23 @@
 package jm.task.core.jdbc.util;
 
+import jm.task.core.jdbc.model.User;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 import java.sql.*;
+import java.util.Properties;
 
 public class Util {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/testDB?serverTimezone=Europe/Moscow&useSSL=false";
     private static final String DB_NAME = "name";
     private static final String DB_PASSWORD = "password";
+
+    private static SessionFactory sessionFactory = createSessionFactory();
 
     public Connection getConnectionJDBC() {
         Connection connection = null;
@@ -24,14 +30,24 @@ public class Util {
         return connection;
     }
 
-    public SessionFactory getConnectionHibernate() {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-        SessionFactory sessionFactory = null;
-        try {
-            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-        } catch (Exception e) {
-            StandardServiceRegistryBuilder.destroy(registry);
-            throw new ExceptionInInitializerError("invalid session factory failed " + e);
+    public static SessionFactory createSessionFactory() {
+        if (sessionFactory == null) {
+            try {
+                Properties prop = new Properties();
+                prop.setProperty("dialect", "org.hibernate.dialect.MySQL8Dialect");
+                prop.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
+                prop.setProperty("hibernate.connection.url","jdbc:mysql://localhost:3306/testDB?serverTimezone=Europe/Moscow");
+                prop.setProperty("hibernate.connection.username","root");
+                prop.setProperty("hibernate.connection.password", "password");
+                prop.setProperty("show_sql", "true");
+                prop.setProperty("hbm2ddl.auto", "create");
+                sessionFactory = new Configuration()
+                        .addProperties(prop)
+                        .addAnnotatedClass(User.class)
+                        .buildSessionFactory();
+            } catch (HibernateException e) {
+                e.printStackTrace();
+            }
         }
         return sessionFactory;
     }
