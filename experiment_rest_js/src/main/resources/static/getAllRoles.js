@@ -5,7 +5,7 @@ function getRoles() {
             data.forEach(function (role) {
                 output += `<option>${role.role}</option>`;
             });
-            document.getElementById("roleNew").innerHTML = output;
+            document.getElementById("roleNew").innerHTML;
             document.getElementById("roleEdit").innerHTML = output;
             document.getElementById("roleDelete").innerHTML = output;
         })

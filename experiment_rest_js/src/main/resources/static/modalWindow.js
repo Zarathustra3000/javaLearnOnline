@@ -1,10 +1,11 @@
 function openModalWindow(id) {
     document.getElementById("idEdit").value = id;
-    document.getElementById("firstNameEdit").value = $("#firstName" + id).text(); //userFirstNameGod
+    document.getElementById("firstNameEdit").value = $("#firstName" + id).text();
     document.getElementById("lastNameEdit").value = $("#lastName" + id).text();
     document.getElementById("ageEdit").value = $("#age" + id).text();
     document.getElementById("mailEdit").value = $("#mail" + id).text();
     document.getElementById("passwordEdit").value = "";
+    //document.getElementById("rEd").value = "";
 }
 
 function openModalWindowDel(id) {

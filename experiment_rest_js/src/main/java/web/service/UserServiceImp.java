@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.RoleDAO;
 import web.dao.UserDAO;
 import web.model.Role;
@@ -65,7 +66,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Set<Role> getAllRoles() { //=============
+    public Set<Role> getAllRoles() {
         return roleDAO.getAllRoles();
     }
 

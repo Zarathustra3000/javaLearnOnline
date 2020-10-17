@@ -36,10 +36,10 @@ function addNewUser(e){
 function setRoles(someRoles) {
     let roles = [];
     if (someRoles.indexOf("ROLE_USER") >= 0) {
-        roles.push({"id": 1, "name": "ROLE_USER"});
+        roles.push({"id": 1, "role": "ROLE_USER"});
     }
     if (someRoles.indexOf("ROLE_ADMIN") >= 0) {
-        roles.push({"id": 2, "name": "ROLE_ADMIN"});
+        roles.push({"id": 2, "role": "ROLE_ADMIN"});
     }
     return roles;
 }

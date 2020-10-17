@@ -19,12 +19,8 @@ public class Role implements GrantedAuthority {
     public Role() {
     }
 
-    public Role(String role) {
-        if (role.equals("ROLE_ADMIN")) {
-            this.id = 1L;
-        } else if (role.equals("ROLE_USER")) {
-            this.id = 2L;
-        }
+    public Role(Long id, String role) {
+        this.id = id;
         this.role = role;
     }
 
