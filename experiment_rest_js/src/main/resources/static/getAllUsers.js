@@ -17,6 +17,7 @@ function getUsers() {
                 <td id="lastName${user.id}">${user.lastName}</td>
                 <td id="age${user.id}">${user.age}</td>
                 <td id="mail${user.id}">${user.mail}</td>
+                <td id="password${user.id}">${user.password}</td>
                 <td id="roles${user.id}">${userRoles}</td>
                 <td>
                 <a class="btn btn-info" role="button"

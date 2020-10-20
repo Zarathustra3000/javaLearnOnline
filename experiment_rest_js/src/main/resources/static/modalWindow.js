@@ -4,8 +4,7 @@ function openModalWindow(id) {
     document.getElementById("lastNameEdit").value = $("#lastName" + id).text();
     document.getElementById("ageEdit").value = $("#age" + id).text();
     document.getElementById("mailEdit").value = $("#mail" + id).text();
-    document.getElementById("passwordEdit").value = "";
-    //document.getElementById("rEd").value = "";
+    document.getElementById("passwordEdit").value = $("#password" + id).text();
 }
 
 function openModalWindowDel(id) {
